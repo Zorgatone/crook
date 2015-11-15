@@ -13,10 +13,10 @@
 
 #define ESCAPE_KEY 0
 
-#define UP_KEY    14;
-#define DOWN_KEY  15;
-#define LEFT_KEY  16;
-#define RIGHT_KEY 17;
+#define UP_KEY    14
+#define DOWN_KEY  15
+#define LEFT_KEY  16
+#define RIGHT_KEY 17
 
 int main(void) {
 	printf("Welcome to Crook!\n");
@@ -43,8 +43,22 @@ int main(void) {
 		key = getkey();
 
 		switch(key) {
+		case UP_KEY:
+			// Move UP
+			break;
+		case RIGHT_KEY:
+			// Move RIGHT
+			break;
+		case DOWN_KEY:
+			// Move DOWN
+			break;
+		case LEFT_KEY:
+			// Move LEFT
+			break;
 		case ESCAPE_KEY:
 			playing = false;
+			break;
+		default:
 			break;
 		}
 	}
