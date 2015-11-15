@@ -7,6 +7,8 @@
 
 #include <stdio.h>
 
+#include "rlutil/rlutil.h"
+
 int main(void) {
 	printf("Welcome to Crook!\n");
 
