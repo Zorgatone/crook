@@ -33,7 +33,9 @@ int main(void) {
 		exit(EXIT_FAILURE);
 	}
 
-	gotoxy(maxx / 2, maxy / 2.0);
+	int x = maxx / 2, y = maxy / 2;
+
+	gotoxy(x, y);
 	putchar('@');
 
 	int key;
@@ -42,18 +44,44 @@ int main(void) {
 	while(playing) {
 		key = getkey();
 
+		cls();
+
 		switch(key) {
 		case UP_KEY:
-			// Move UP
+			// Move UP if permitted
+			if (y > 1) {
+				y--;
+			}
+
+			gotoxy(7, maxy);
+			printf("UP_KEY");
 			break;
 		case RIGHT_KEY:
-			// Move RIGHT
+			// Move RIGHT if permitted
+			if (x < maxx) {
+				x++;
+			}
+
+			gotoxy(7, maxy);
+			printf("RIGHT_KEY");
 			break;
 		case DOWN_KEY:
-			// Move DOWN
+			// Move DOWN if permitted
+			if (y < maxy) {
+				y++;
+			}
+
+			gotoxy(7, maxy);
+			printf("DOWN_KEY");
 			break;
 		case LEFT_KEY:
-			// Move LEFT
+			// Move LEFT if permitted
+			if (x > 1) {
+				x--;
+			}
+
+			gotoxy(7, maxy);
+			printf("LEFT_KEY");
 			break;
 		case ESCAPE_KEY:
 			playing = false;
@@ -61,6 +89,13 @@ int main(void) {
 		default:
 			break;
 		}
+
+		gotoxy(1, maxy);
+		printf("%d %d", x, y);
+
+		gotoxy(x, y);
+
+		putchar('@');
 	}
 
 	cls();
