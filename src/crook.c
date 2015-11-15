@@ -7,13 +7,22 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "rlutil/rlutil.h"
+
+#define ESCAPE_KEY 0
+
+#define UP_KEY    14;
+#define DOWN_KEY  15;
+#define LEFT_KEY  16;
+#define RIGHT_KEY 17;
 
 int main(void) {
 	printf("Welcome to Crook!\n");
 
 	getch();
+	hidecursor();
 	cls();
 
 	int maxx = tcols(), maxy = trows();
@@ -27,13 +36,23 @@ int main(void) {
 	gotoxy(maxx / 2, maxy / 2.0);
 	putchar('@');
 
-	while(getkey() != KEY_ESCAPE) {
+	int key;
+	bool playing = true;
 
+	while(playing) {
+		key = getkey();
+
+		switch(key) {
+		case ESCAPE_KEY:
+			playing = false;
+			break;
+		}
 	}
 
 	cls();
-	printf("#RIP Player1...\n");
+	printf("RIP Player 1...\n");
 
+	showcursor();
 	getch();
 	cls();
 

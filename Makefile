@@ -1,2 +1,2 @@
 all:
-	gcc src/crook.c -o bin/crook
+	gcc -std=c11 src/crook.c -o bin/crook
