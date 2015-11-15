@@ -1,2 +1,2 @@
 # crook
-A roguelike
+A roguelike in C
